@@ -12,7 +12,7 @@ def execute_statement(connection, statement):
   cursor.execute(statement)
   results = []
 
-  for row in curson:
+  for row in cursor:
     results.append(row)
 
   cursor.close()
@@ -27,16 +27,13 @@ def get_student_schedule(student_id):
 student_id = input("Choose a student id: ")
 results = get_student_schedule(student_id)
 
-for row in cursor:
+for result in results:
    print()
-   period = result[1]
-   course = result[2]
-   room = result[3]
-   teacher = result[4]
-   print("Period: " + period)
-   print("Course: " + course)
-   print("Room: " + room)
-   print("Teacher: " + teacher)
-
-
-
+   period = result[0]
+   course = result[1]
+   room = result[2]
+   teacher = result[3]
+   print("Period:", period)
+   print("Course:", course)
+   print("Room:", room)
+   print("Teacher:", teacher)
